@@ -53,3 +53,5 @@ if ask in "0":
             break
 else:
     print("Para mais informações acesse: https://www.blitk.com/information")
+    
+print()
