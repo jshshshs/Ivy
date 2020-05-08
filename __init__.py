@@ -204,10 +204,5 @@ def ai():
             sleep(4)
 
 
-def login():
-    while True:
-        login=(str(input("Digite seu login: "))
-        for lin in open(value):
-            if dado in lin:
-                break
-            print(lin)
+
+            
