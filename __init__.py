@@ -6,6 +6,30 @@ def logcad(arquivo, login='',senha=''):
     a.write(f"{log}\n")
     a.close()
     print(">>>>>>>>>>>>>>>>> Cadastro efetuado com sucesso <<<<<<<<<<<<<<<<<<<<")
+    
+    
+def logar():
+    while True:
+        arquivo = open('logins.py')
+        login = input('Digite o seu Login: ')
+
+        cadastrados = arquivo.readlines()
+        if login + '\n' in cadastrados:
+            break
+        else:
+            print('ERRO. O Usuário Digitado está errado.')
+        arquivo.close()
+    while True:
+        arquivo = open('logins.py')
+        senha = input('Digite a sua senha: ')
+
+        cadastrados = arquivo.readlines()
+        if senha + '\n' in cadastrados:
+            break
+        else:
+            print('ERRO. A senha Digitada está errada.')
+        arquivo.close()
+
 
 
 

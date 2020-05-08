@@ -8,19 +8,7 @@ if ask in "1":
     test = "logins.py"
     rody.logcad(test)
 if ask in "0":
-    while True:
-        login=(input("informe seu login: "))
-        if login  == "Blitk" :
-            break
-        else:
-           print("ACESSO NEGADO.")
-    while True:
-        senha=(input("Informe sua senha: "))
-        if senha == "blitk123":
-            break
-        else:
-            print("ACESSO NEGADO.")
-
+	rody.logar()
     print("Aguarde um momento")
     from time import sleep
     for c in range(0, 3):
