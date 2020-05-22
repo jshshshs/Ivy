@@ -1,36 +1,49 @@
-def logcad(arquivo, login='',senha=''):
-    a = open(arquivo, 'at')
-    login=str(input("Digite um login: "))
-    senha=str(input("Digite uma senha: "))
-    log = {"login": login, "senha": senha}
-    a.write(f"{log}\n")
-    a.close()
+def logcad():
+    print(">>>>>>>>>>\033[34mBem vindo ao registro de usuário\033[m<<<<<<<<<<")
+    while True:
+        username = input("Digite um login: ")
+        password = input("Digite uma senha: ")
+        password1 = input("Confirme sua senha: ")
+        if password == password1:
+            file = open(username + ".txt", "w")
+            file.write(username + ":" + password)
+            file.close()
+            break
+        else:
+            print("\033[31mAS SENHAS NÃO COINCIDEM!\033[m")
+            continue
     print(">>>>>>>>>>>>>>>>> Cadastro efetuado com sucesso <<<<<<<<<<<<<<<<<<<<")
-    
-    
+
+
 def logar():
+    print(">>>>>>>>>>\033[34mBem vindo ao sistema de Login\033[m<<<<<<<<<<")
     while True:
-        arquivo = open('logins.py')
-        login = input('Digite o seu Login: ')
-
-        cadastrados = arquivo.readlines()
-        if login + '\n' in cadastrados:
-            break
+        login1 = input("Login: ")
+        login2 = input("Senha: ")
+        import os.path
+        teste = os.path.isfile(login1 + ".txt")
+        if teste is True:
+            file = open(login1 + ".txt", "r")
+            data = file.readline()
+            file.close()
+            if data == login1 + ":" + login2:
+                print(f"\033[34mBem vindo de volta {login1}!\033[m")
+                break
+            else:
+                print("\033[31mUSUÁRIO OU SENHA INCORRETA\033[m")
+                continue
         else:
-            print('ERRO. O Usuário Digitado está errado.')
-        arquivo.close()
-    while True:
-        arquivo = open('logins.py')
-        senha = input('Digite a sua senha: ')
-
-        cadastrados = arquivo.readlines()
-        if senha + '\n' in cadastrados:
-            break
-        else:
-            print('ERRO. A senha Digitada está errada.')
-        arquivo.close()
+            print("\033[31mUSUÁRIO NÃO EXISTE\033[m")
+            continue
+            
 
 
+def mostrar(nome):
+    a=open(nome, 'rt')
+    print("=-"*30)
+    for pessoas in a:
+        print(f"{pessoas}")
+    print("=-" * 30)
 
 
 def registro(arquivo):
@@ -174,6 +187,8 @@ def megasena():
 
 
 
+
+
 def ai():
     from time import sleep
     nome = str(input('Olá! Eu me chamo \033[34mIvy\033[0m, qual é o seu primeiro nome? '))
@@ -192,11 +207,11 @@ def ai():
             print(f'Mãos a obra {nome}!')
             print("Carpe Diem meu caro amigo :) ")
             print("Mas enfim...")
-            sleep(4)
+            sleep(2)
         else:
             print("Tudo bem, respeito sua escolha...")
             print("Mas enfim...")
-            sleep(4)
+            sleep(2)
     elif bem in "MAL NÃO ESTOU BEM":
         print("Ah que pena...")
         sad= str(input('Quer se abrir comigo? [SIM/NÃO] ')).upper()
@@ -205,7 +220,7 @@ def ai():
             print("entendi... :( ")
             sleep(2)
             print(f"Mas pensa comigo {nome}, existe um lindo céu azul lá fora, ou uma linda noite estrelada.\n Mesmo nos dias nublados eles estão lá, por mais que não seja visível por conta das nuvens, mas toda nuvem é passageira.\n Se mantenha forte sempre {nome}!")
-            sleep(4)
+            sleep(2)
             ask = str(input("Deseja me contar sobre seu dia? [SIM/NÃO] "))
             if ask in "SIM":
                 dia = str(input(f'E como está sendo seu dia {nome}? '))
@@ -217,16 +232,29 @@ def ai():
                 print(f"Mãos a obra {nome}!")
                 print("Carpe Diem meu caro amigo :) ")
                 print("Mas enfim...")
-                sleep(4)
+                sleep(2)
             else:
                 print("Tudo bem, respeito sua escolha...")
                 print("Mas enfim...")
-                sleep(4)
+                sleep(2)
         else:
             print("Tudo bem, respeito sua escolha...")
             print("Mas enfim...")
-            sleep(4)
+            sleep(2)
+
+
+def chat():
+    def chat():
+        nick = str(input("Digite um Nickname: "))
+        nick += ": "
+        print("Para sair do chat é só digitar \"exit\"")
+        print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+        while True:
+            mensagem = str(input("~ "))
+            print(f"{nick}{mensagem}")
+            if mensagem == "exit":
+                break
 
 
 
-            
+
